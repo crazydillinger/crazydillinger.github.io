@@ -1,38 +1,53 @@
 ---
-title: Hello World
+title: Cmder:windows上的完美的控制台模拟器
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+#### 目录
 
-### Create a new post
+- cmder
+- 安装包
+- 环境变量
+- 右键菜单
+- 添加命令
+- 默认路径
+- 中文乱码
 
-``` bash
-$ hexo new "My New Post"
+### cmder
+
+cmder是一个增强命令行工具,不仅可以试用windows下所有命令,还可以使用linux,shell命令
+
+More info: [Crmder](http://cmder.net/)
+
+### 环境变量
+
+把crmder的home目录路径放到path中,即可以在win + R中搜索到exe程序
+
+> 如把D:\program\cmder放到path变量中
+
+### 右键菜单
+进入cmder的根目录,执行命令
+
+```
+cd cmder
+Cmder.exe /REGISTER ALL
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+### 添加命令
 
-### Run server
-
-``` bash
-$ hexo server
+```
+l=ls --show-control-chars 
+la=ls -aF --show-control-chars 
+ll=ls -alF --show-control-chars 
+ls=ls --show-control-chars -F
 ```
 
-More info: [Server](https://hexo.io/docs/server.html)
+### 默认路径
 
-### Generate static files
+打开设置,选择**Startup-Task**,修改**{cmd::cmder}**
+>cmd /k "%ConEmuDir%\..\init.bat"  -new_console:d:目录名
 
-``` bash
-$ hexo generate
-```
+### 中文乱码
 
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)
+打开设置,选择**Startup-Task**,修改environment.
+>set PATH=%ConEmuBaseDir%\Scripts;%PATH%
+set LANG=zh_CN.UTF8
