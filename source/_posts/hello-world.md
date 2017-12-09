@@ -1,5 +1,9 @@
 ---
 title: Cmder:windows上的完美的控制台模拟器
+categories: "工具"
+tags:
+  - 配置
+  - 来源网络
 ---
 
 #### 目录
